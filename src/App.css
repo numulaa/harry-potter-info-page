@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+*,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000000;
+  /* color: #d3a625; */
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.first-sec-wrapper {
+  display: flex;
+  padding: 3rem 0 3rem 5rem;
+}
+.first-sec-wrapper > div {
+  width: 50%;
+  flex-basis: 50%;
+}
+.hogwarts-pic-wrapper {
+  flex-basis: 50%;
+  width: 50%;
+  overflow: hidden;
+}
+.hogwarts-pic-wrapper > img {
+  object-fit: cover;
+}
+
+.details-content {
+  height: 100%;
+  width: auto;
+  margin: 0 100px 0 100px;
+  display: flex;
+}
+
+section#details-container {
+  height: 100vh;
+  background: rgb(70, 70, 70);
+  background: radial-gradient(
+    circle,
+    rgba(238, 186, 48, 0.15) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.details-content > div.information {
+  color: white;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.information td {
+  color: white;
+  margin: 1em 0;
+  font-size: 1.25rem;
+  line-height: 3rem;
+}
+
+div.information-content div {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9b9a9a;
+  padding: 20px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 20%;
+}
+
+span {
+  line-height: 1rem;
+}
+
+.no-character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}

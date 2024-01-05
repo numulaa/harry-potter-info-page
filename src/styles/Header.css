@@ -1,0 +1,13 @@
+.nav-style {
+  display: flex;
+  column-gap: 2rem;
+  padding: 4rem 5rem 0 5rem;
+}
+.nav-style > a {
+  text-decoration: none;
+  color: #d3a625;
+}
+.nav-style > a + a {
+  padding-left: 2rem;
+  border-left: 2px solid #d3a625;
+}

@@ -1,0 +1,60 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  justify-content: center;
+  padding: 5rem 0;
+  flex-basis: 1/2;
+  width: 50%;
+}
+.main-wrapper p {
+  font-size: 30px;
+  line-height: 50px;
+}
+h1 {
+  font-family: "Serif", serif;
+  font-size: 5.5rem;
+}
+form input {
+  width: 50%;
+  height: 64px;
+  padding: 0 0;
+  border: none;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 25px;
+  padding-left: 25px;
+  background-color: #eeeeee;
+  transition: width 500ms ease;
+}
+
+form input:hover {
+  width: 55%;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form button {
+  width: 10%;
+  height: 64px;
+  background: #ae0001;
+  border: none;
+  font-size: 25px;
+  border-radius: 0 15px 15px 0;
+  transition: 0.3s;
+}
+
+form button i {
+  color: white;
+}
+
+form button:hover {
+  background: #740001;
+  cursor: pointer;
+}
+
+::placeholder {
+  font-size: 25px;
+  color: #bbb9b9;
+}
