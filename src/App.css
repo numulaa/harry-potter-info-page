@@ -88,3 +88,43 @@ span {
   text-align: center;
   width: 100%;
 }
+
+/* .cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+.third-sec {
+  padding: 5rem;
+}
+.game-details {
+  text-align: center;
+  /* display: flex; */
+  margin: 0 auto 4rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.third-sec h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+/* .third-sec .game-desc {
+  margin: 2rem auto 3.5rem auto;
+} */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.reset-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto;
+}

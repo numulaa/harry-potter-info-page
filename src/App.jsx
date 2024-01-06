@@ -7,27 +7,61 @@ import hogwartsLogo from "./assets/hogwarts.png";
 import "./App.css";
 import Picture from "./components/Picture";
 import Information from "./components/Information";
+import Card from "./components/Card";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchVar, setSearchVar] = useState("");
   const [character, setCharacter] = useState(null);
+  const [score, setScore] = useState(0);
+  const [cardClicked, setCardClicked] = useState([]);
+  const [isLost, setIsLost] = useState(false);
+  const [charactersForGame, setCharacterForGame] = useState([]);
+  const [isWin, setIsWin] = useState(false);
 
-  // useEffect(() => {
-  //   console.log("effect");
-  //   charactersServices.getAll().then((initialCharacters) => {
-  //     setCharacters(initialCharacters);
-  //   });
-  // }, []);
+  useEffect(() => {
+    console.log("effect");
+    charactersServices.getAll().then((initialCharacters) => {
+      setCharacters(initialCharacters);
+      setCharacterForGame(
+        charactersForGame.concat(initialCharacters.slice(0, 12))
+      );
+      console.log(initialCharacters);
+    });
+  }, []);
+  // let charactersForGame = characters.slice(0, 12);
+  console.log(charactersForGame);
 
   const handleSearch = (e) => {
     setSearchVar(e.target.value);
   };
   const handleFindCharacter = () => {
-    charactersServices.getByName(searchVar).then((char) => {
-      setCharacter(char);
-      setSearchVar("");
-    });
+    const char = characters.find((n) =>
+      n.name.toLowerCase().includes(searchVar.toLowerCase())
+    );
+    setCharacter(char);
+    setSearchVar("");
+  };
+
+  const handleClickCard = (id) => {
+    if (score === 11) {
+      setIsWin(true);
+    }
+    if (cardClicked.includes(id)) {
+      setIsLost(true);
+      setScore(0);
+    } else {
+      setCharacterForGame(charactersForGame.sort(() => Math.random() - 0.5));
+      setCardClicked(cardClicked.concat(id));
+      setScore(score + 1);
+    }
+  };
+
+  const handleStartNewGame = () => {
+    setIsLost(false);
+    setIsWin(false);
+    setScore(0);
+    setCardClicked([]);
   };
 
   return (
@@ -55,6 +89,33 @@ function App() {
             <h3>Type the character you're curious about in the seacrh box</h3>
           </div>
         )}{" "}
+      </section>
+      <section id="card-game" className="third-sec">
+        <div className="game-details">
+          <h2>Let's play game</h2>
+          <p className="game-desc">
+            Get points by clicking on an image but don't click on any more than
+            once!
+          </p>
+          <p>Your score: {score}</p>
+          {/* <p>Best score: {score}</p> */}
+          {isWin || isLost ? (
+            <button onClick={handleStartNewGame} className="reset-btn">
+              Start a new game
+            </button>
+          ) : null}
+        </div>
+        <div className="cards-wrapper">
+          {charactersForGame.map((char) => (
+            <Card
+              character={char}
+              key={char.id}
+              handleClickCard={handleClickCard}
+              isLost={isLost}
+              isWin={isWin}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );

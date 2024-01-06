@@ -10,6 +10,9 @@ const Header = () => {
       <a href="#details-container">
         <p>Information</p>
       </a>
+      <a href="#card-game">
+        <p>Game</p>
+      </a>
     </nav>
   );
 };
