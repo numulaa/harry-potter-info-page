@@ -26,30 +26,28 @@ function App() {
       setCharacterForGame(
         charactersForGame.concat(initialCharacters.slice(0, 12))
       );
-      console.log(initialCharacters);
     });
   }, []);
-  // let charactersForGame = characters.slice(0, 12);
-  console.log(charactersForGame);
 
   const handleSearch = (e) => {
     setSearchVar(e.target.value);
   };
   const handleFindCharacter = () => {
+    const name = searchVar;
     const char = characters.find((n) =>
-      n.name.toLowerCase().includes(searchVar.toLowerCase())
+      n.name.toLowerCase().includes(name.toLowerCase())
     );
     setCharacter(char);
     setSearchVar("");
   };
 
   const handleClickCard = (id) => {
-    if (score === 11) {
-      setIsWin(true);
-    }
+    if (isLost || isWin) return;
     if (cardClicked.includes(id)) {
       setIsLost(true);
       setScore(0);
+    } else if (score === 11) {
+      setIsWin(true);
     } else {
       setCharacterForGame(charactersForGame.sort(() => Math.random() - 0.5));
       setCardClicked(cardClicked.concat(id));
@@ -63,7 +61,6 @@ function App() {
     setScore(0);
     setCardClicked([]);
   };
-
   return (
     <div className="content-wrapper">
       <Header />
@@ -88,7 +85,7 @@ function App() {
           <div className="no-character">
             <h3>Type the character you're curious about in the seacrh box</h3>
           </div>
-        )}{" "}
+        )}
       </section>
       <section id="card-game" className="third-sec">
         <div className="game-details">
@@ -109,7 +106,7 @@ function App() {
           {charactersForGame.map((char) => (
             <Card
               character={char}
-              key={char.id}
+              key={char.name}
               handleClickCard={handleClickCard}
               isLost={isLost}
               isWin={isWin}
