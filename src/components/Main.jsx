@@ -9,7 +9,7 @@ const Main = ({ searchVar, handleSearch, handleFindCharacter }) => {
         If you are a Harry Potter fan, look here for some details from the
         greatest series in the world.
       </p>
-      <form action="">
+      <form action="" onSubmit={handleFindCharacter}>
         <input
           type="text"
           name=""
@@ -17,7 +17,7 @@ const Main = ({ searchVar, handleSearch, handleFindCharacter }) => {
           placeholder="Hermione Granger"
           onChange={handleSearch}
         />
-        <button onClick={handleFindCharacter}>
+        <button>
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>

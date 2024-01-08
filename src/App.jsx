@@ -32,13 +32,17 @@ function App() {
   const handleSearch = (e) => {
     setSearchVar(e.target.value);
   };
-  const handleFindCharacter = () => {
+
+  const handleFindCharacter = (e) => {
+    e.preventDefault();
     const name = searchVar;
     const char = characters.find((n) =>
       n.name.toLowerCase().includes(name.toLowerCase())
     );
     setCharacter(char);
     setSearchVar("");
+    console.log(name);
+    console.log(char);
   };
 
   const handleClickCard = (id) => {
@@ -106,7 +110,7 @@ function App() {
           {charactersForGame.map((char) => (
             <Card
               character={char}
-              key={char.name}
+              key={char.id}
               handleClickCard={handleClickCard}
               isLost={isLost}
               isWin={isWin}
