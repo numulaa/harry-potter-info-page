@@ -8,6 +8,7 @@ import "./App.css";
 import Picture from "./components/Picture";
 import Information from "./components/Information";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -118,6 +119,7 @@ function App() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
